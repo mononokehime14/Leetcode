@@ -25,7 +25,8 @@ public class TopKFrequentValue {
     }
     private void mergeSort(int low, int high){
         if(low < high){
-            int mid = (int)(low + high) / 2; //explicit cast to int should round down
+            int mid = (int)(low + high) / 2; //explicit cast to int should round down,
+            //but it should not be needed since mid is declared as int
             mergeSort(low, mid);
             mergeSort(mid+1, high);
             merge(low, mid, high);

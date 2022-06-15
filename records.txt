@@ -1,0 +1,4 @@
+This records follow labuladong's guide.
+
+1. Binary Search
+34 704
