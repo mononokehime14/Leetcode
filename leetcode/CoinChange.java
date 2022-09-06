@@ -1,6 +1,6 @@
 public class CoinChange {
     public int coinChange(int[] coins, int amount) {
-        int[] mem = new int[amount + 1];
+        int[] mem = new int[amount + 1]; // base case 在amount 0的时候
         for(int i = 0;i < amount + 1;i++){
             mem[i] = -1;
         }
