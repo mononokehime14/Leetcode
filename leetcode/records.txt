@@ -1,4 +1,7 @@
 This records follow labuladong's guide.
 
-1. Binary Search
+#Binary Search
 34 704
+
+#DP
+
