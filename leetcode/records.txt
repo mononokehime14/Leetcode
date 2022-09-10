@@ -1,7 +1,0 @@
-This records follow labuladong's guide.
-
-#Binary Search
-34 704
-
-#DP
-
