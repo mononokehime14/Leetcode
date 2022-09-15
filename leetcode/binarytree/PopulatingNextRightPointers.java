@@ -1,4 +1,4 @@
-package leetcode;
+package binarytree;
 import leetcode.Node;
 
 public class PopulatingNextRightPointers {
