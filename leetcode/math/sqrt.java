@@ -1,3 +1,4 @@
+package math;
 public class sqrt {
     public int mySqrt(int x) {
         int left = 0;
