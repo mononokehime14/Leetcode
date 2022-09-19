@@ -6,3 +6,12 @@ DFS秒杀岛屿问题
 
 MergeSort 复习
 归并排序详解应用
+
+二叉搜索树复习
+快速排序 最近公共祖先 等
+
+图论复习
+Kruskal, Prim, Dijkstra, 名流问题
+
+重要题目
+word search, merge intervals
