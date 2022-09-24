@@ -6,6 +6,7 @@ public class PalindromeLinkedList {
      * 然后从prev开始 prev是最后一个反转过的 然后prev往前 slow继续往后
      * 这里注意一个细节 如果list number是奇数 那么fast next为null就会结束循环 这时候fast仍然不为null
      * slow实际上在中点 而我们palindrome奇数list不能那中点和中点前面的比较 所以slow要再进一步
+     * 反转在细节在于当前的next指向前一个 当前变成原来的next（这里需要用next的备份）前一个变成当前
     */
     public boolean isPalindrome(ListNode head) {
         ListNode slow = head, fast = head;
