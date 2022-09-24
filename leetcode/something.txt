@@ -13,5 +13,8 @@ MergeSort 复习
 图论复习
 Kruskal, Prim, Dijkstra, 名流问题
 
+LinkedList
+25 Reverse Nodes in k-group
+
 重要题目
 word search, merge intervals, maximal square
