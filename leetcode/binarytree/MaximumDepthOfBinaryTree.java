@@ -10,7 +10,9 @@ public class MaximumDepthOfBinaryTree {
         step += Math.max(maxDepth(root.left), maxDepth(root.right));
         return step;
     }
-    /* 也可以用正统的回溯思路, DFS/preorder到一条track的极限, 然后return更新max */
+    /* 也可以用正统的回溯思路, DFS/preorder到一条track的极限, 然后return更新max 
+     * 这种做法的速度优势我认为体现了BFS找最短的特点 但是理论上两者找最长路径都要遍历全树
+    */
     // 这种做法速度极佳, 100
     int res = 0;
     int depth = 0;

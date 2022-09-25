@@ -3,7 +3,7 @@ package math;
 public class SuperPow {
     /* 这道题的思路不难 只是有几个细节 首先是如何modular
      * 这里要记住 (a * b) % m = ((a % m) * (b % m)) %m
-     * 然后就是求a ** b的基本思路是递归
+     * 然后就是求a ** b的基本思路是递归 选择是基于数字是奇数还是偶数
      * a ** b = 
      *  a * (a ** (b-1)), if b odd
      *  (a ** (b/2)) ** 2, if b even

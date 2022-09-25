@@ -2,7 +2,6 @@ DP复习:
 4.4 用动态规划玩游戏
 
 Backtrack复习
-DFS秒杀岛屿问题
 
 MergeSort 复习
 归并排序详解应用
@@ -15,6 +14,9 @@ Kruskal, Prim, Dijkstra, 名流问题
 
 LinkedList
 25 Reverse Nodes in k-group
+
+括号问题
+1541
 
 重要题目
 word search, merge intervals, maximal square
