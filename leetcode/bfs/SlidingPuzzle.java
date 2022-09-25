@@ -15,7 +15,7 @@ public class SlidingPuzzle {
         q.add(start);
         mem.add(start);
         int step = 0;
-        int[][] adjs = new int[][]{
+        int[][] adjs = new int[][]{ //注意这里的细节 不然就需要一个很长的switch 别问为什么我知道orz
             {1,3},
             {2,0,4},
             {1,5},
