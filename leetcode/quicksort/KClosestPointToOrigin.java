@@ -1,4 +1,4 @@
-package priorityqueue;
+package quicksort;
 
 import java.util.Arrays;
 
