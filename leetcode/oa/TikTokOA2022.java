@@ -1,3 +1,4 @@
+package oa;
 import java.util.Arrays;
 
 public class TikTokOA2022 {
