@@ -14,9 +14,11 @@ public class minyiLinkedin2022OA {
     //     System.out.println(subsegmentSort(nums5)); // 1
     //     System.out.println(subsegmentSort(nums6)); // 1
     // }
+
     // public String breakAPalindrome(String a) {
 
     // }
+    
     public static int subsegmentSort(int[] arr) {
         /**
          * 思路比较类似patience sorting
