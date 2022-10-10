@@ -18,5 +18,8 @@ LinkedList
 括号问题
 1541
 
+Trie
+前缀数算法
+
 重要题目
 word search, merge intervals, maximal square
