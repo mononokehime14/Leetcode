@@ -1,4 +1,4 @@
-package backtrack;
+package backtrackdfs;
 import java.util.Arrays;
 import java.util.HashMap;
 public class PartitionKEqualSumSubsets {

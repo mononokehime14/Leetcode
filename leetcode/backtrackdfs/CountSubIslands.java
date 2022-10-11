@@ -1,4 +1,4 @@
-package backtrack;
+package backtrackdfs;
 
 public class CountSubIslands {
     /* 这道题需要一些巧妙的思路 思路的基本和closed island那道题 先他娘的把不合适的先淹掉

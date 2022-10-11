@@ -1,4 +1,4 @@
-package backtrack;
+package backtrackdfs;
 
 import java.util.*;
 public class Permutations2 {
