@@ -4,7 +4,8 @@ import java.util.List;
 
 public class Permutations {
     /* 注意重复问题的检查不是用start index因为题目要求回去找, 但是又不能重复找已经加入的数字
-     * 所以需要visited. 又注意size<=6所以可以用bit operation优化. 速度提升至77%
+     * 所以需要visited. 自己不能visit自己 到了别人的轮次又能访问自己了 所以visited要撤销 这是真正的回溯
+     * 又注意size<=6所以可以用bit operation优化. 速度提升至77%
      */
     List<List<Integer>> mem;
     public List<List<Integer>> permute(int[] nums) {

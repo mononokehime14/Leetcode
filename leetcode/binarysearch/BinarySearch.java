@@ -1,3 +1,4 @@
+package binarysearch;
 public class BinarySearch {
     public int search(int[] nums, int target) {
         int mid = nums.length / 2;
