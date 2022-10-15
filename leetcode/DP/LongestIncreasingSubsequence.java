@@ -29,7 +29,8 @@ public class LongestIncreasingSubsequence {
          * 从左至右选, 比牌堆top小的才能加入成为新top, 比现有牌堆top大开新的牌堆, first fit
          * 牌堆的数量就是LIS, 因为起码第一堆的某一张加上后面牌堆的第一张就是一个LIS, 第一堆如果只有一张
          * 那这样它将是最小值, 那么连在一起仍然成立, 如果是最大值那么LIS必然也只有1
-         * 仅仅如此是N**2, 无法做到nlogn, 注意牌堆top是有序的, 因为first fit 可以使用南北朝算法搜索要去哪一堆
+         * 仅仅如此是N**2, 如果本来就是有序的 每一个都要找完所有的牌堆 然后新开一个
+         * 无法做到nlogn, 注意牌堆top是有序的, 因为first fit 可以使用南北朝算法搜索要去哪一堆
          */
         int[] top = new int[nums.length];
         top[0] = nums[0];

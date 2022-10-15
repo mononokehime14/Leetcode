@@ -7,7 +7,7 @@ public class 01Matrix {
      * 为什么第二遍能够推出正确的值呢 我觉得是这道题的特殊性 最小路径要不就是上半部分来 要不就是下半部分来 这两个set能够
      * 组成完整的solution space
      * 然后注意这道题的base case 我们给第一行的1赋了最大值 因为自信第二遍迭代它能够作为end case推出最小值
-     * 最大值我们给的不是Int max(在这道题可能也可以) 而是用了这个问题中路径的最大值n + m
+     * 最大值我们给的不是Int max(在这道题可能也可以 但是别的题目可能容易出现overflow) 而是用了这个问题中路径的最大值n + m
      */
     public int[][] updateMatrix(int[][] mat) {
         int m = mat.length, n = mat[0].length, max = n + m;

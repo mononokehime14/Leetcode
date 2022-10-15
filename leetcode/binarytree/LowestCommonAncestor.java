@@ -5,6 +5,7 @@ public class LowestCommonAncestor {
          * 首先我们发现，如果一个node左边能找到p，右边能找到q，则其必然为LCA，多上一个level都不行
          * 其次，如果我们直接找到了p或者q，则其必然是LCA，因为它的parents已经被搜过了不是，而题目保证了
          * 必然有LCA，那么另外的一个就必然在其下面，所以其本身必然是LCA
+         * 思路是分而治之
          */
         return search(root, p, q);
     } 

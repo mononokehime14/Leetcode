@@ -1,3 +1,4 @@
+package sorting;
 class SortColors {
     public void sortColors(int[] nums) {
         int count1 = 0;

@@ -5,11 +5,11 @@ public class TikTokOA2022 {
     private String q1a = "(a | b) + (a & b)";
     private String q1b = "(a ^ b) + (a & b) * 2";
     private String q2 = "N - 1";
-    public static void main(String[] args) {
-        int[][] nums = new int[][]{{1,2,3},{2,1,2},{3,1,1}};
-        System.out.println("hello");
-        System.out.println(dividingForest(nums, 3));
-    }
+    // public static void main(String[] args) {
+    //     int[][] nums = new int[][]{{1,2,3},{2,1,2},{3,1,1}};
+    //     System.out.println("hello");
+    //     System.out.println(dividingForest(nums, 3));
+    // }
     public static int dividingForest(int[][] nums, int k) {
         int M = (int) 1e9 + 7, m = nums.length, n = nums[0].length;
         int[][][] dp = new int[m+1][n+1][k+1];
