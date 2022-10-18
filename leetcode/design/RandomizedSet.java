@@ -1,3 +1,4 @@
+package design;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Random;
@@ -22,10 +23,12 @@ public class RandomizedSet {
         return true;
     }
     /*
-     * 如何remove中获得O(1)time complexity? 利用ArrayList和Linklist remove last index
+     * 如何remove中获得O(1)time complexity? 利用ArrayList remove last index
      * constant time的特性,除了remove last index都是O(N)
      * 如果我不知道要remove的数字的index那么remove就有search cost, 一旦我知道, 便可以和最后一个index
      * swap来达到constant time的效果
+     * 这里还利用了ArrayList get()是O(1)这使得swap可以在Constant time完成 额外注意这是破坏顺序的 换言之顺序在这个结构里不重要
+     * 为什么get()是O(1) 而LinkedList就是O(N) 因为ArrayList backed with Array access其内在array是O(1)的 只要计算地址就可以了
      */
     public boolean remove(int val) {
         if(!mem.containsKey(val)) return false;

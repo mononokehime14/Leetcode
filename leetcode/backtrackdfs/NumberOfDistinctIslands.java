@@ -1,7 +1,7 @@
 package backtrackdfs;
 
 public class NumberOfDistinctIslands {
-    /* 这道题由于prime的原因 我做不了 直接看了答案
+    /* 这道题由于VIP的原因 我做不了 直接看了答案
      * 形状相同的岛屿怎么判断 有一个原理是 只要我们DFS选择的顺序不变 那么同样的顺序必然可以通过DFS track出来
      * 所以我们可以通过记录方向的方式记录形状
      */
