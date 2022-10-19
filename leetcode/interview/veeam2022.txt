@@ -1,0 +1,6 @@
+1. What is the most interesting project?
+2. What programming language do you favor?
+3. What Data Structure did you use in your projects (interesting data strcuture)?
+4. What is your course plan/future career interest, does it match Kastern team?
+5. Why did you do AI research, do you want to continue?
+6. Do you accept remote?
