@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 public class StripeOA2022Preparation {
-    // Permissions
+    // Access Token Permissions
     public static Set<String> permissions(String[] roles) {
         Set<String> output = new HashSet<>();
         if(roles.length == 0) return output;
@@ -46,6 +46,7 @@ public class StripeOA2022Preparation {
                 }              
             }
         }
+        //List<String> output2 = new ArrayList<>(output);
         return output;
     } 
 
@@ -92,23 +93,11 @@ public class StripeOA2022Preparation {
 
     //Payouts
     public static void partOne(String[] currencies, String[] charges){
-        HashMap<String, Map<String,Double>> map = new HashMap<>();
-        map.put("CHF", new HashMap<>());
-        map.put("EUR", new HashMap<>());
-        map.put("GBP", new HashMap<>());
-        map.put("USD", new HashMap<>());
-        map.get("CHF").put("USD", 0.97);
-        map.get("CHF").put("EUR", 0.92);
-        map.get("CHF").put("GBP", 0.78);
-        map.get("EUR").put("USD", 1.05);
-        map.get("EUR").put("CHF", 1.08);
-        map.get("EUR").put("GBP", 0.85);
-        map.get("GBP").put("USD", 1.24);
-        map.get("GBP").put("EUR", 1.18);
-        map.get("GBP").put("CHF", 1.28);
-        map.get("USD").put("CHF", 1.03);
-        map.get("USD").put("EUR", 0.95);
-        map.get("USD").put("GBP", 0.81);
+        HashMap<String, Double> map = new HashMap<>();
+        map.put("USD", 1.0);
+        map.put("CHF", 0.97);
+        map.put("EUR", 1.05);
+        map.put("GBP", 1.24);
         String defaultCur = currencies[0];
         HashSet<String> accounts = new HashSet<>();
         TreeMap<String, Double> output = new TreeMap<>();
@@ -122,67 +111,18 @@ public class StripeOA2022Preparation {
             if(accounts.contains(currency)) {
                 output.put(currency, output.get(currency) + amount * 0.98);
             }else{
-                output.put(defaultCur, output.get(defaultCur) + amount * map.get(currency).get(defaultCur) * 0.98);
+                output.put(defaultCur, output.get(defaultCur) + amount * 0.98 * map.get(currency) * (1.0 / map.get(defaultCur)));
             }
         }
         for(Map.Entry<String, Double> e : output.entrySet()) System.out.println(e.getKey() + "," + (int)Math.round(e.getValue()));
     } 
 
     public static void partTwo(String[] currencies, String[] charges){
-        HashMap<String, Map<String,Double>> map = new HashMap<>();
-        map.put("CHF", new HashMap<>());
-        map.put("EUR", new HashMap<>());
-        map.put("GBP", new HashMap<>());
-        map.put("USD", new HashMap<>());
-        map.get("CHF").put("USD", 0.97);
-        map.get("CHF").put("EUR", 0.92);
-        map.get("CHF").put("GBP", 0.78);
-        map.get("EUR").put("USD", 1.05);
-        map.get("EUR").put("CHF", 1.08);
-        map.get("EUR").put("GBP", 0.85);
-        map.get("GBP").put("USD", 1.24);
-        map.get("GBP").put("EUR", 1.18);
-        map.get("GBP").put("CHF", 1.28);
-        map.get("USD").put("CHF", 1.03);
-        map.get("USD").put("EUR", 0.95);
-        map.get("USD").put("GBP", 0.81);
-        String defaultCur = currencies[0];
-        HashSet<String> accounts = new HashSet<>();
-        TreeMap<String, Double> output = new TreeMap<>();
-        for(String s: currencies) {
-            accounts.add(s);
-            output.put(s, 0.0);
-        }
-        for(int i = 0;i < charges.length;i++) {
-            double amount = Double.parseDouble(charges[i].split(",")[1]);
-            String currency = charges[i].split(",")[2];
-            if(accounts.contains(currency)) {
-                output.put(currency, output.get(currency) + (int)Math.round(amount * 0.98));
-            }else{
-                output.put(defaultCur, output.get(defaultCur) + amount * map.get(currency).get(defaultCur) * 0.98);
-            }
-        }
-        for(Map.Entry<String, Double> e : output.entrySet()) System.out.println(e.getKey() + "," + (int)Math.round(e.getValue()));
-    }
-
-    public static void partTwo(String[] currencies, String[] charges){
-        HashMap<String, Map<String,Double>> map = new HashMap<>();
-        map.put("CHF", new HashMap<>());
-        map.put("EUR", new HashMap<>());
-        map.put("GBP", new HashMap<>());
-        map.put("USD", new HashMap<>());
-        map.get("CHF").put("USD", 0.97);
-        map.get("CHF").put("EUR", 0.92);
-        map.get("CHF").put("GBP", 0.78);
-        map.get("EUR").put("USD", 1.05);
-        map.get("EUR").put("CHF", 1.08);
-        map.get("EUR").put("GBP", 0.85);
-        map.get("GBP").put("USD", 1.24);
-        map.get("GBP").put("EUR", 1.18);
-        map.get("GBP").put("CHF", 1.28);
-        map.get("USD").put("CHF", 1.03);
-        map.get("USD").put("EUR", 0.95);
-        map.get("USD").put("GBP", 0.81);
+        HashMap<String, Double> map = new HashMap<>();
+        map.put("USD", 1.0);
+        map.put("CHF", 0.97);
+        map.put("EUR", 1.05);
+        map.put("GBP", 1.24);
         String defaultCur = currencies[0];
         HashSet<String> accounts = new HashSet<>();
         TreeMap<LocalDate, Double[]> output = new TreeMap<>();
@@ -196,7 +136,7 @@ public class StripeOA2022Preparation {
             double amount = Double.parseDouble(charges[i].split(",")[1]) * 0.98;
             String currency = charges[i].split(",")[2];
             if(!accounts.contains(currency)) {
-                amount *= map.get(currency).get(defaultCur);
+                amount *= map.get(currency) * (1.0 / map.get(defaultCur));
                 currency = defaultCur;
             }
             switch(currency) {

@@ -4,25 +4,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 public class CitadelOAPreparation2022 {
-    /* 对于每一个想要找到的mid 尝试大小为n的sequence 看看能不能sequence的min == mind */
-    private boolean can_place(int A[], int n, int B, int mid) {
-        int count = 1;
-        int last_position = A[0];
-    
-        // If a subsequence of size B with min diff = mid is possible， return true else false
-        for(int i = 1; i < n; i++)
-        {
-            if (A[i] - last_position >= mid) {
-                last_position = A[i];
-                count++;
-                if (count == B){
-                    return true;
-                }
-            }
-        }
-        return false;
-    }
- 
     // Global Maximum
     // Function to find the maximum of all minimum difference of pairs possible among the subsequence
     public int globalMaximum(int A[], int n, int B) {
@@ -49,6 +30,24 @@ public class CitadelOAPreparation2022 {
             }
         }
         return ans;
+    }
+    /* 对于每一个想要找到的mid 尝试大小为n的sequence 看看能不能sequence的min == mind */
+    private boolean can_place(int A[], int n, int B, int mid) {
+        int count = 1;
+        int last_position = A[0];
+    
+        // If a subsequence of size B with min diff = mid is possible， return true else false
+        for(int i = 1; i < n; i++)
+        {
+            if (A[i] - last_position >= mid) {
+                last_position = A[i];
+                count++;
+                if (count == B){
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     //Throttling Gateway
