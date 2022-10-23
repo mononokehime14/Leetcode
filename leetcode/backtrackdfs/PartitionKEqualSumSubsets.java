@@ -17,7 +17,7 @@ public class PartitionKEqualSumSubsets {
     */
     // int[] groups;
     // public boolean canPartitionKSubsets(int[] nums, int k) {
-    //     int sum = Arrays.stream(nums).sum();
+    //     int sum = Arrays.(nums).sum();
     //     if(sum % k != 0) return false;
     //     sum /= k;
     //     groups = new int[k];

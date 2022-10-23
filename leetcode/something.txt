@@ -21,5 +21,11 @@ LinkedList
 Trie
 前缀数算法
 
+Design
+232. Implement Queue using Stacks
+208. Implement Trie (Prefix Tree)
+981. Time Based Key-Value Store
+295. Find Median from Data Stream
+
 重要题目
 word search, merge intervals, maximal square

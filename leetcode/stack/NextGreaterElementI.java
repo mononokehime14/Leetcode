@@ -1,8 +1,11 @@
+package stack;
 import java.util.HashMap;
 import java.util.Stack;
 public class NextGreaterElementI {
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
-        /* 直接linear search nums2 是n平方, 用石知一栈可以减到n */
+        /* 直接linear search nums2 是n平方, 用石知一栈可以减到n 
+         * 单调栈
+        */
         HashMap<Integer, Integer> num1_h = new HashMap<>();
         Stack<Integer> stack = new Stack<>();
         stack.push(nums2[0]);
