@@ -1,3 +1,4 @@
+package array;
 import java.util.HashMap;
 public class MajorityElement {
     public int majorityElement(int[] nums) {
