@@ -2,10 +2,10 @@ package array;
 
 public class BreakAPalindrome {
     public String breakPalindrome(String p) {
-        /**
+        /** 1328
          * 思路想不到 一开始是用了palindrome的套路 找到中间点 然后背向双指针
-         * 但是这样非常麻烦 这个思路很取巧 只需要看前一半 从左到右 只要能翻就直接return 必然是最小值
-         * 左边一半找不到 就直接把右边最后一个改成b 这必然是最小的
+         * 但是这样非常麻烦 这个思路很取巧 只需要看前一半 从左到右 只要能翻成a就直接return 必然是最小值
+         * 左边一半找不到 首先就以为着左边右边都是全a了 直接把右边最后一个改成b 这必然是最小的
          * 因为 aabaa -> aabab比aabba要小
          */
         int n = p.length();

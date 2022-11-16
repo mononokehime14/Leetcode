@@ -14,7 +14,7 @@ public class Subsets {
     public List<List<Integer>> subsets(int[] nums) {
         mem = new ArrayList<>();
         List<Integer> candidate = new ArrayList<>();
-        Arrays.sort(nums);
+        Arrays.sort(nums); // 应该是不需要sort的 可能复制permutation的代码没删掉
         mem.add(new ArrayList<>());
         int n = nums.length;
         generate(candidate, nums, 0, n);

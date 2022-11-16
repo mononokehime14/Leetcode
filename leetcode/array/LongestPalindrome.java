@@ -6,7 +6,7 @@ public class LongestPalindrome {
          * 首先是数数 如果最后是偶数 必然可以分列两旁 如果是奇数 一开始觉得只有一个最大的count能放在中间
          * 但是没有想到可以把奇数-1的偶数部分分列两旁 最后有一个奇数剩下的1放在中间 这样就对了
          * 这里有一个技巧 在于a比A要后面 'a' - 'A'是32 所以理论上 要存lower + higher一个32 + 26 = 58的array就够了
-         * 也可以直接counting[c] 直接将其转化成int
+         * 也可以直接counting[c] 直接将其转化成int 则需要128的array
          */
         int[] counting = new int[64];
         for(char c: s.toCharArray()) {
@@ -16,10 +16,10 @@ public class LongestPalindrome {
         boolean hasOdd = false;
         for(int i: counting) {
             if(i % 2 == 1) {
-                result--;
+                result--; // 偶数部分分列两边 剩下的1个先不要
                 hasOdd = true;
             }
         }
-        return hasOdd ? result + 1 : result;
+        return hasOdd ? result + 1 : result; // 随便一个奇数的1 再补回来
     }
 }

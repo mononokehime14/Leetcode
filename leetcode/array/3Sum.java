@@ -1,7 +1,7 @@
 package array;
 
 public class 3Sum {
-    /**
+    /** LC15
      * 一开始用的方法并不是很行 思路是对于一个数 从其右边的数组中找到另外的两个数 用two sum的方法
      * 但是这里主要是两个问题 第一two sum找到一个解就返回了 如何找到全部的解 第二 我们不能有duplicate的解
      * 故此 其实对原方法进行一下改动 改成set<list<integer>>能避免解法重复 找到不return接着找能找到全部的解 不要用helper function
@@ -14,7 +14,7 @@ public class 3Sum {
         Set<List<Integer>> output = new HashSet<>();
         int n = nums.length;
         for(int i = 0;i < n - 2;i++) { // n - 2 avoid index越界
-            if(i > 0 && nums[i] == nums[i-1]) continue; // optimize
+            if(i > 0 && nums[i] == nums[i-1]) continue; // optimize 同时这也是防止重复
             int left = i+1;
             int right = n - 1;
             while(left < right) {
@@ -23,12 +23,14 @@ public class 3Sum {
                     output.add(Arrays.asList(nums[left], nums[right], nums[i]));
                     left++;
                     right--;
-                    while(left < right && nums[left] == nums[left - 1]) left++; //optimize
-                    while(left < right && nums[right] == nums[right + 1]) right--; //optimize
+                    while(left < right && nums[left] == nums[left - 1]) left++; //optimize 同时这也是防止重复
+                    while(left < right && nums[right] == nums[right + 1]) right--; //optimize 同时这也是防止重复
                 }else if(sum > 0) {
                     right--;
+                    // while(left < right && nums[right] == nums[right + 1]) right--; //实际上函数的这个部分也可以优化
                 }else {
                     left++;
+                    // while(left < right && nums[left] == nums[left - 1]) left++; //optimize
                 }
             }
         }

@@ -3,7 +3,7 @@ import java.util.*;
 public class CombinationSum {
     /* 注意题目条件是没有重复的元素但是可以重复使用
      * 我想的办法是while loop加在for loop里面
-     * 但是实际上有更聪明的, 可以直接不加index就好了
+     * 但是实际上有更聪明的, 可以直接index不变 继续加入自己就好了
      * 补上一个补丁, 因为只用sum == target是会造成无限循环的, 可能加过了然后一直加自己
      * 所以要加上sum > target return 结束回溯
      */

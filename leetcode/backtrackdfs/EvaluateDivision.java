@@ -2,7 +2,7 @@ package backtrackdfs;
 
 public class EvaluateDivision {
     /*
-     * 这道题目DFS的关键难点在于这是一个双向directed weighted graph
+     * 这道题目DFS的关键难点在于这是一个双向directed weighted graph a = 2b, b = 1/2a
      * 因为双向 所以只要按照分子找分母就可以了 如果他们能够相连 则必然能够相除
      * 然后注意停止条件 找到答案的话 要提前判定 当前的node检查adjacent nodes是否match分母
      * 这是因为如果有当前node检查 由于我们的graph构建是map套map 如果它是最后一个node 我们无法知道权重了 只有上一个node可以知道

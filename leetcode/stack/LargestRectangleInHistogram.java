@@ -3,7 +3,7 @@ package stack;
 public class LargestRectangleInHistogram {
     public int largestRectangleArea(int[] heights) {
         /*
-         * 这是一个单调栈能解决的问题 也就是石知一栈
+         * 这是一个单调栈能解决的问题 也就是石知一栈 实质上是某种滑动窗口的思路
          * 单调栈是O(N)的 每一个元素只会入栈和出栈一次 模版是一个for循环套while循环 for循环循环每一个元素 入栈
          * 在入栈之前 要进行一些检查 然后用while循环抛弃掉不要的
          * 之所以单调栈能够解决问题 是因为问题的某种特性 比如在next greater element里面 遇到一个比当前peek高的 我们可以抛弃掉之前所有比这个元素矮的

@@ -17,7 +17,7 @@ public class CloneGraph {
         if(root == null) return null;
         if(visited.containsKey(root)) return visited.get(root);
         Node newRoot = new Node(root.val);
-        visited.put(root, newRoot);
+        visited.put(root, newRoot); // 可以先把引用加入
         for(Node cur: root.neighbors) {
             Node next = traverse(cur);
             if(next != null) newRoot.neighbors.add(next);

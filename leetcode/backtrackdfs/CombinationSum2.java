@@ -13,7 +13,7 @@ public class CombinationSum2 {
     List<List<Integer>> output;
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
         output = new ArrayList<>();
-        Arrays.sort(candidates);
+        Arrays.sort(candidates); // sort
         backtrack(new ArrayList<Integer>(), candidates, target, 0, 0);
         return output;
     }
@@ -24,7 +24,7 @@ public class CombinationSum2 {
         }
         for(int i = start;i < candidates.length;i++) {
             if(candidates[i] + sum > target) continue;
-            if(i > start && candidates[i] == candidates[i-1]) continue;
+            if(i > start && candidates[i] == candidates[i-1]) continue; // skip same number
             sum += candidates[i];
             track.add(candidates[i]);
             backtrack(track, candidates, target, sum, i+1);

@@ -9,6 +9,9 @@ public class LinkedListCycle2 {
      * 不一定 因为有环的起点 比如在m处 那么slow到起点时离原来的相遇点k-m距离 而fast到起点时 同样离原来的相遇点k-m
      * 所以 第二次起步他们必然在起点相遇
      * 如果起点在相遇点后面呢 一个道理 只要保证slow和fast现在速度相同 这次他们会错过原相遇点 而在起点相遇
+     * 重新整理: 环起点在m处 之前相遇在k处 快指针2k 那么慢指针重新走m到环起点 快指针走2k + m 
+     * 我们能够发现 2k + m就是在环起点处 因为只要考虑慢指针什么时候再次经过环起点呢 就是2k + m, 4k + m ...
+     * 所以他们能够在环起点重遇
      */
     public ListNode detectCycle(ListNode head) {
         ListNode slow = head, fast = head;

@@ -23,7 +23,7 @@ public class Permutations2 {
         }
         for(int i = 0;i < nums.length;i++) {
             if(((visited >> i) & 1) == 1) continue;
-            if(i > 0 && nums[i] == nums[i-1] && (((visited >> (i-1)) & 1) == 0)) continue;
+            if(i > 0 && nums[i] == nums[i-1] && (((visited >> (i-1)) & 1) == 0)) continue; // 上一个元素是否在track里 在的话就说明我们使用了它
             visited = visited | (1 << i);
             candidate.add(nums[i]);
             backtrack(candidate, nums, visited);

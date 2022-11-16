@@ -57,7 +57,7 @@ public class PartitionKEqualSumSubsets {
     }
     private boolean backtrack(int index, int[] nums, int visited, int group_sum, int k, int sum, int start){
         if(index == k) return true;
-        if(group_sum == sum){
+        if(group_sum == sum){ // 一个满足条件的partition
             boolean result = backtrack(index + 1, nums, visited, 0, k, sum, 0);
             mem.put(visited, result);
         }

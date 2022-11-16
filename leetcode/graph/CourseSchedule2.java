@@ -18,7 +18,7 @@ public class CourseSchedule2 {
         track = new boolean[numCourses]; // boolean array initialized to false
         List<Integer>[] graph = buildGraph(numCourses, prerequisites);
         for(int i = 0;i < numCourses;i++) {
-            traverse(i, graph);
+            traverse(i, graph); // 别写错成traverse(0, graph)
         }
         if(answer){
             return new int[]{};
