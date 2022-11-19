@@ -4,7 +4,7 @@ public class LongestIncreasingPathInMatrix {
     /*
      * 一开始用DFS超时了 答案是要用DP + DFS
      * 一开始的情况每个点辐射出去 trace每个sequence然后将长度和globalMax比较更新 这个方法超时的问题很好想 就是每一个点辐射一次
-     * 理论上的时间复杂度是n ^ 2 然后我就思考能不能用DP 我的想法是能够记录dp[i][j]延伸出去的最长increasing path
+     * 理论上的时间复杂度是4 ** N 然后我就思考能不能用DP 我的想法是能够记录dp[i][j]延伸出去的最长increasing path
      * 但是这个想法碰到一个问题 就是如果方向不一致的怎么办 (x, y) -> (i, j), 从(i, j)延伸出去的不一定和xy连得上呀
      * 然后就走歪了路 妈的01matrix还在害人 我就想正着一遍反着一遍 但是这个算法是不正确的 具体没推理
      * 事实上 确实应该用dp[i][j] ij是起点 就必然是sequence的最小的 xy到ij如果xy比ij小 那么必然可以顺延这个sequence 反之则会提前return
