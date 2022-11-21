@@ -6,7 +6,7 @@ public class PathWithMaximumProbability {
      * 有一些些细节 比如图是双向构建的 pq是最大堆
      */
     public double maxProbability(int n, int[][] edges, double[] succProb, int start, int end) {
-        Queue<Node> pq = new PriorityQueue<Node>((a, b) -> Double.compare(b.disFromStart, a.disFromStart));
+        Queue<Node> pq = new PriorityQueue<Node>((a, b) -> Double.compare(b.disFromStart, a.disFromStart)); // d1 > d2 return true, swap, so max heap
         pq.offer(new Node(start, 1.0));
         double[] distance = new double[n];
         Arrays.fill(distance, 0.0);

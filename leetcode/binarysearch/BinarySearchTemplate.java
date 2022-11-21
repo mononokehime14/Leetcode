@@ -43,6 +43,6 @@ public class BinarySearchTemplate {
                 left = mid + 1; // may be correct answer, but we try once more
             }
         }
-        return right == 0 ? -1 : right; 
+        return right < 0 ? -1 : right; // should be < 0 not == 0, if no element match will out of range.
     }
 }

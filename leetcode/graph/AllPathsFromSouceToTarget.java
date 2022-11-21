@@ -3,7 +3,8 @@ package graph;
 import java.util.*;
 
 public class AllPathsFromSouceToTarget {
-    /* 这道题看起来就是DFS回溯的思路 但是到这道题开始 发现了DFS在图题目中和回溯的一些细节不同
+    /* 797
+     * 这道题看起来就是DFS回溯的思路 但是到这道题开始 发现了DFS在图题目中和回溯的一些细节不同
      * 在回溯算法中 我们在递归前后做选择和撤销选择 这些都是for循环里面 我们做选择意思是在track中加入该选择
      * 这样我们就会发现 当前的选择呢？ 当前的选择在之前call的时候加好了 那root呢 root是空不重要
      * 但是在DFS图遍历中 root是重要的 所以我们对顺序做了一些调整 进入循环前加入当前的node
