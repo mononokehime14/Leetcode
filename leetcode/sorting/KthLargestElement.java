@@ -25,7 +25,7 @@ public class KthLargestElement {
         int i = left - 1, j = right;
         while(true){
             while(i < j && nums[++i] > m){}
-            while(j > i && nums[--j] < m){}
+            while(i < j && nums[--j] < m){}
             if(i < j){
                 swap(nums, i, j);
             }else{

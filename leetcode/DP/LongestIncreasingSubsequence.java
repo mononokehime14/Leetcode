@@ -31,27 +31,44 @@ public class LongestIncreasingSubsequence {
          * 那这样它将是最小值, 那么连在一起仍然成立, 如果是最大值那么LIS必然也只有1
          * 仅仅如此是N**2, 如果本来就是有序的 每一个都要找完所有的牌堆 然后新开一个
          * 无法做到nlogn, 注意牌堆top是有序的, 因为first fit 可以使用南北朝算法搜索要去哪一堆
+         * 
+         * 2022.11.20更新 沿用了新整理的二分查找模版 注意这里我们是要找第一个大于或者等于target的element
          */
         int[] top = new int[nums.length];
         top[0] = nums[0];
         int number_piles = 1;
         for(int i = 1;i < nums.length;i++){
-            int left = 0;
-            int right = number_piles;
-            while(left < right){
+            int left = 0, right = piles - 1;
+            while(left <= right) {
                 int mid = left + (right - left) / 2;
-                if(top[mid] >= nums[i]){
-                    right = mid;
-                }else if(top[mid] < nums[i]){
+                if(top[mid] < nums[i]) {
                     left = mid + 1;
+                }else{
+                    right = mid - 1;
                 }
             }
-            if(left == number_piles || top[right] < nums[i]){
-                top[number_piles] = nums[i];
-                number_piles++;
+            if(left == piles) {
+                top[piles] = nums[i];
+                piles++;
             }else{
-                top[right] = nums[i];
+                top[left] = nums[i];
             }
+            // int left = 0;
+            // int right = number_piles;
+            // while(left < right){
+            //     int mid = left + (right - left) / 2;
+            //     if(top[mid] >= nums[i]){
+            //         right = mid;
+            //     }else if(top[mid] < nums[i]){
+            //         left = mid + 1;
+            //     }
+            // }
+            // if(left == number_piles || top[right] < nums[i]){
+            //     top[number_piles] = nums[i];
+            //     number_piles++;
+            // }else{
+            //     top[right] = nums[i];
+            // }
         }
         return number_piles;
     }

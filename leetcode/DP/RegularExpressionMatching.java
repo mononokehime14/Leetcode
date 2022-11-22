@@ -1,6 +1,7 @@
 public class RegularExpressionMatching {
     public boolean isMatch(String s, String p) {
-        /* 近期第一次自己做对了hard!我是无敌的! 
+        /* 10
+         * 近期第一次自己做对了hard!我是无敌的! 
          * 思路仍然是基于2 strings 双指针, 比对当前的char
          * DP[i][j] = ANY{
          *  if P[j] = ".", DP[i-1][j-1], //skip
