@@ -6,7 +6,7 @@ public class minyiCitadelOA2022 {
         double ab = Math.sqrt(Math.pow(Math.abs(x1 - x2), 2) + Math.pow(Math.abs(y1 - y2), 2));
         double bc = Math.sqrt(Math.pow(Math.abs(x2 - x3), 2) + Math.pow(Math.abs(y2 - y3), 2));
         double ac = Math.sqrt(Math.pow(Math.abs(x1 - x3), 2) + Math.pow(Math.abs(y1 - y3), 2));
-        if(ab + bc < ac || ab + ac < bc || bc + ac < ab) return 0;
+        if(ab + bc <= ac || ab + ac <= bc || bc + ac <= ab) return 0;
         double areaT = area(x1,  y1,  x2,  y2,  x3,  y3);
         double area1 = area( x1,  y1,  xp,  yp,  x3,  y3);
         double area2 = area( x1,  y1,  x2,  y2,  xp,  yp);
