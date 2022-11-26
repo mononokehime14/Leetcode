@@ -20,7 +20,7 @@ public class WildcardMatching {
         if(i == m && j == n) return true;
         if(i == m) {
             for(int k = j;k < n;k++) {
-                if(p[k] != '*') return false;
+                if(p[k] != '*') return false; // i先结束则p那边剩下的必须全部是*才行
             }
             return true;
         }
