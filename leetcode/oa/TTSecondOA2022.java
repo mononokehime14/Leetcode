@@ -1,5 +1,9 @@
 package oa;
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
 
 public class TTSecondOA2022 {
     /*
@@ -11,12 +15,12 @@ public class TTSecondOA2022 {
      */
 
     // Trick-Or-Treats, LC198 House Robber
-    public int houseRobber(int[] nums) {
-        int n = nums.length;
-        if(n == 1) return nums[0];
-        int prev = Math.max(nums[0], nums[1]), prevPrev = nums[0];
+    public int houseRobber(List<Integer> nums) {
+        int n = nums.size();
+        if(n == 1) return nums.get(0);
+        int prev = Math.max(nums.get(0), nums.get(1)), prevPrev = nums.get(0);
         for(int i = 2;i < n;i++) {
-            int current = Math.max(prev, prevPrev + nums[i]);
+            int current = Math.max(prev, prevPrev + nums.get(i));
             prevPrev = prev;
             prev = current;
         }
@@ -27,41 +31,44 @@ public class TTSecondOA2022 {
     // 在这一个符合排序完后的位置的值和下一个符合排序完位置后的值之间的所有值 必然大于下一个值 大于这一个值 大于所有之前的值 都必然move
     // 而这些要move的值 是可以在右边形成一个升序的 只要我们从最小的move到最大的 因为它们全部大于前面正确序列的最大值
     // 相当于我们只要找出sorted版本中 从前面开始数 不用move到后面的 剩下的必然要动 而且可以只动一次形成升序
-    public int minimumMoveBack(int[] nums) {
-        int[] numsCopy = nums.clone();
-        Arrays.sort(numsCopy);
-        int n = nums.length;
-        int answer = n, i = 0, j = 0;
+    public int minimumMoveBack(List<Integer> nums) {
+        int n = nums.size();
+        List<Integer> numsCopy = new ArrayList<>(nums);
+        Collections.sort(numsCopy);
+        int answer = n, j = 0;
         for(int i = 0;i < n;i++) {
-            if(nums[i] == numsCopy[j]) {
+            if(nums.get(i) == numsCopy[j]) {
                 answer--;
                 j++; //注意J是不必要走完的
             }
         }
+        return answer;
     }
     // Strategy for TikTok Advertisement, CoinChange, 01背包
-    public int highestUsers(int[][] M, int N) {
+    public int highestUsers(List<List<Long>> M, long N) {
         int m = M.length;
-        int[] dp = new int[N+1];
+        int[][] dp = new int[M+1][(int)N+1];
         // base case 0, no need initialization
-        for(int i = 0;i <= m;i++) {
-            for(int j = 0;j <= N;j++) {
-                if(j - M[i][1] >= 0) {
-                    dp[j] = Math.max(dp[j], dp[j - M[i][1]]);
-                }
+        for(int i = 1;i <= m;i++) {
+            int cost = M.get(i).get(0).intValue();
+            int customers = M.get(i).get(1).intValue();
+            for(int j = cost;j <= N;j++) {
+                dp[i][j] = Math.max(dp[i-1][j], dp[i-1][j - cost] + customers);
             }
         }
-        return dp[N];
+        return dp[m][N];
+        //空间优化版 没试 可能会有重复更新的问题 第二个循环是不是需要反向？
         // int m = M.length;
-        // int[][] dp = new int[M+1][N+1];
+        // int[] dp = new int[N+1];
         // // base case 0, no need initialization
-        // for(int i = 0;i <= m;i++) {
-        //     for(int j = 0;j <= N;j++) {
-        //         int use = j - M[i][1] >= 0 ? dp[i][j - M[i][1]] : 0;
-        //         dp[i][j] = Math.max(dp[i-1][j], use);
+        // for(int i = 1;i <= m;i++) {
+        //     for(int j = 1;j <= N;j++) {
+        //         if(j - M.get(i).get(0) >= 0) {
+        //             dp[j] = Math.max(dp[j], dp[j - M.get(i).get(0)] + M.get(i).get(1));
+        //         }
         //     }
         // }
-        // return dp[m][N];
+        // return dp[N];
     }
 
     /*
@@ -70,7 +77,7 @@ public class TTSecondOA2022 {
      * 两个sleep是说在wait state (TASK_UNINTERRUPTABLE, TASK_INTERRUPTABLE)
      * TASK_TRACED则是debugger在trace某个process
      * 
-     * Higher scalability
+     * Higher scalability, 不确定是不是正确
      * Specialized Query Operations
      * Frustration with the restrictiveness of relational schemas
      */
