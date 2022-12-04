@@ -1,4 +1,4 @@
-package lccontest;
+
 
 public class CountWaysToBuildGoodStrings {
     /*

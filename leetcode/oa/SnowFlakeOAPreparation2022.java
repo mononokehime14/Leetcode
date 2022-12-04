@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 public class SnowFlakeOAPreparation2022 {
     // Task Scheduling 回溯/dfs 备忘录
@@ -523,4 +524,47 @@ public class SnowFlakeOAPreparation2022 {
         }
         return count;
     }
+
+    // Server selection
+    public static int serverSelection(List<List<Integer>> v) {
+        int n = v.size(), m = v.get(0).size();
+        Map<String, Integer>[] mem = new Map[n];
+        for(int i = 0;i < n;i++) mem[i] = new HashMap<>();
+        int[] maxes = new int[m];
+        return dfs(v, mem, maxes, 0, 0, 0, n, m);
+    }
+    private static int dfs(List<List<Integer>> v, Map<String, Integer>[] mem, int[] maxes, int min, int i, int colNum, int n, int m) {
+        if(colNum == m - 1) {
+            return min;
+        }
+        if(i >= n) return 0;
+        String rep = intArrayToString(maxes);
+        if(mem[i].containsKey(rep)) return mem[i].get(rep);
+        int dontUse = dfs(v, mem, maxes.clone(), min, i+1, colNum, n, m);
+        System.out.print(i+" dont use maxes: ");
+        for(int j = 0;j < m;j++) {
+            System.out.print(maxes[j] + " ");
+        }
+        System.out.println(dontUse);
+        int newMin = 100001;
+        System.out.print(i+" use newMax: ");
+        int[] newMaxes = new int[m];
+        for(int j = 0;j < m;j++) {
+            newMaxes[j] = Math.max(v.get(i).get(j), maxes[j]);
+            newMin = Math.min(newMaxes[j], newMin);
+            System.out.print(newMaxes[j] + " ");
+        }
+        int use = dfs(v, mem, newMaxes, newMin, i+1, colNum+1, n, m);
+        System.out.println(use);
+        int greater = Math.max(use, dontUse);
+        mem[i].put(rep, greater);
+        return greater;
+    } 
+    private static String intArrayToString(int[] arr) {
+        StringBuilder sb = new StringBuilder();
+        for(int a: arr) {
+            sb.append(String.valueOf(a));
+        }
+        return sb.toString();
+    } 
 }
