@@ -2,7 +2,7 @@ package graph;
 
 public class FriendCircles {
     /*
-     * 
+     * 并查集
      */
     public int findCircleNum(int[][] isConnected) {
         int m = isConnected.length;
