@@ -1,4 +1,4 @@
-package prefixarray;
+package array.prefixsumarray;
 
 public class CorporateFlightBookings {
     public int[] corpFlightBookings(int[][] bookings, int n) {

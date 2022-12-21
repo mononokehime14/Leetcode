@@ -1,4 +1,4 @@
-package prefixarray;
+package array.prefixsumarray;
 
 public class TheSkylineProblem {
     /* 218

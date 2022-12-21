@@ -564,6 +564,7 @@ public class SnowFlakeOAPreparation2022 {
         StringBuilder sb = new StringBuilder();
         for(int a: arr) {
             sb.append(String.valueOf(a));
+            sb.append(",");
         }
         return sb.toString();
     } 

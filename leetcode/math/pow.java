@@ -1,3 +1,4 @@
+package math;
 public class pow {
     public double myPow(double x, int n) {
         /*
