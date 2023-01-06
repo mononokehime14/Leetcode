@@ -2,6 +2,7 @@ public class LRUCache {
     /* 重点在于hashmap和list配合 list存node 按照顺序 hashmap则存key对应的node
      * 这里为什么不存key对应的index呢 因为这样remove就不是O1了 必须要传node 这样直接操作prev next
      * 而且必定要用doubly linked list 以保证remove O1
+     * 也无法做到和最后的互换然后remove 这样是没办法记录最近使用的 也就是没办法保持时间顺序 最后一个应该被换到倒数第二个
      */
     private int capacity;
     private DoubleList cache;
@@ -59,6 +60,7 @@ class Node{
     }
 }
 
+/* 双向链表 */
 class DoubleList{
     public Node head, tail;
     public int size;

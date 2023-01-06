@@ -7,6 +7,7 @@ public class CountOfSmallerNumbersAfterSelf {
      * left  mid       right
      * 1 1 3 5   2 4 6 7
      * 这个时候如果left在5 right在6 5 < 6我们可以确定6前面就是5后面小于5的数字
+     * 而左边有多少小于5的 必然递归的更下层已经算过了
      * 那么我们就加入到count里面 剩下的细节就是count是base on原来数组的index的 所以需要一个特殊的[n][2]数组 记录值和index
      */
     private int[][] temp;

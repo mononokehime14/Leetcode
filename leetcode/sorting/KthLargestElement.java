@@ -1,5 +1,12 @@
 package sorting;
 public class KthLargestElement {
+    /*
+     * 这是快速选择的最优解 min heap的方法是nlogk的 而quick select的平均时间复杂度是O(N)的
+     * 这是因为第一次全部动一遍 第二次平均动一半 第三次平均动一半的一半 全部加起来小于2n 虽然层高logn 可以想象成剪枝了的快排
+     * 最差时间复杂度仍然是O(N ** 2)发生在已经排好序的数组中 但是用random选择或者取三者平均数可以避免最坏情况
+     * 空间复杂度表面上来看in place是没有的 但是有logn的递归空间复杂度 最坏的空间复杂度仍然是O(N) 因为如果partition非常不均匀 下一层的长度和这一层接近的话 那么层高就接近O(N)
+     * 空间复杂度quick sort和merge sort相同但是组成部分形成了区别 merge sort是需要辅助数组 O(N)的 当然也有递归成本 两者相加 整体O(N)
+     */
     public int findKthLargest(int[] nums, int k) {
         if(nums.length == 1){
             return nums[0];
