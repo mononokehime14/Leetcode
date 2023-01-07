@@ -10,6 +10,10 @@ public class PartitionEqualSubsetSum {
          * 比如nums 1 2 5, amount 4, 正向update全部是true, 因为凑成功3用了1和2,为了凑成功4又用了1
          * 应该反向loop,在当前num loop的时候, j只能用这个num, 不用就是还不行(initial state),
          * 这限制了j用前面成功了的amount已经用掉了的nums
+         * 一个更好的原因如下：
+         * 因为二维压缩到一维的根本原理是，dp[j] 和 dp[j-nums[i-1]] 还没被新结果覆盖的时候，相当于二维 dp 中的 dp[i-1][j] 和 dp[i-1][j-nums[i-1]]
+         * 那么，我们就要做到：在计算新的 dp[j] 的时候，dp[j] 和 dp[j-nums[i-1]] 还是上一轮外层 for 循环的结果
+         * 如果你从前往后遍历一维 dp 数组，dp[j] 显然是没问题的，但是 dp[j-nums[i-1]] 已经不是上一轮外层 for 循环的结果了，这里就会使用错误的状态，当然得不到正确的答案。
          */
         int m = Arrays.stream(nums).sum();
         if(m % 2 != 0) return false;
