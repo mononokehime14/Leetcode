@@ -1,3 +1,4 @@
+package backtrackdfs;
 import java.util.ArrayList;
 class GenerateParenthesis {
     //Well formed/valid的检查方式是balance，在任何一个position，)的数量都不能多于(的数量，反之则是

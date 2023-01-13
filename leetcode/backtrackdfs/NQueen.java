@@ -8,7 +8,7 @@ public class NQueen {
      * loop row, 判断每一个位置是否可以放皇后? 可以放的话就可以下一层backtrack.
      * 何时停止回溯呢? 两种情况, 第一种是整个row都放不进, 这就是自己结束function call return
      * 第二种是发现我们记录的row层数已经大于n, 那说明前面都成功了, 这便是一个成功的案例
-     * 细节: java list copy是深度的, add board to output, 后面值改的时候它也会变, 要用copy方法
+     * 细节: java list copy是浅度的, add board to output, 后面值改的时候它也会变, 要用copy方法
      */
     List<List<String>> output;
     public List<List<String>> solveNQueens(int n) {

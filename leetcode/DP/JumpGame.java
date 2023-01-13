@@ -5,6 +5,7 @@ public class JumpGame {
          * 可以greedy，利用nums是maximum steps，换言之在maximum steps
          * 的限制下可以随便跳，这样我们只要从右到左，看smallest到最后一个的
          * index，可否reach就行了。
+         * 在这个思路下 其实并不需要从右到左 只需要不断计算能够跳到的最远距离就可以了
          */
         // boolean[] mem = new boolean[nums.length];
         // mem[0] = true;
