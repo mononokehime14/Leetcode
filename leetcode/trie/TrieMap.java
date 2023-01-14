@@ -2,7 +2,7 @@ package trie;
 
 public class TrieMap {
     /*
-     * 前缀树的TreeMap实现
+     * 前缀树的TrieMap实现
      */
     private int size = 0;
     private TrieNode<V> root = null;

@@ -1,7 +1,11 @@
+package greedy;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MergeIntervals {
+    /* 56
+     * 这道题并非贪心 放到这里只是为了和其他interval得题目放在一起
+     */
     public int[][] merge(int[][] intervals) {
         if(intervals.length <= 1){
             return intervals;
