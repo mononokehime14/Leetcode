@@ -1,3 +1,4 @@
+package math;
 public class SumTwoIntegers {
     public int getSum(int a, int b) {
         if(a == 0) return b;

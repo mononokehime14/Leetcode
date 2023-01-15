@@ -1,4 +1,4 @@
-package backtrackdfs;
+package dfs;
 
 public class NumberOfDistinctIslands {
     /* 这道题由于VIP的原因 我做不了 直接看了答案

@@ -1,4 +1,4 @@
-package backtrackdfs;
+package dfs;
 
 public class MinimumScoreOfAPathBetween2Cities {
     /* 2492

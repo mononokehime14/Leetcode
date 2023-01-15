@@ -1,4 +1,4 @@
-package backtrackdfs;
+package dfs;
 
 public class NumberOfClosedIsland {
     /* 岛屿系列的第二步 和基本型相比 就是不能假设每一个0都会形成一个岛屿了 如果其碰到了边缘

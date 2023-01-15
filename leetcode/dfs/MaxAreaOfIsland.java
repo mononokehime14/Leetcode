@@ -1,4 +1,4 @@
-package backtrackdfs;
+package dfs;
 
 public class MaxAreaOfIsland {
     /* 解题思路和前面的岛屿问题是一模一样的 只需要DFS记录路径就可以了

@@ -1,3 +1,4 @@
+package math;
 public class Divide2Integers {
     public int divide(int dividend, int divisor) {
         /* 

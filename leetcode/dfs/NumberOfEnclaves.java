@@ -1,4 +1,4 @@
-package backtrackdfs;
+package dfs;
 
 public class NumberOfEnclaves {
     /* 只能说和closed island是一模一样的思路 但是一开始想的方法傻逼了 不需要通过DFS来数数
