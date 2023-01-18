@@ -14,7 +14,7 @@ public class PopulatingNextRightPointers {
         while(head != null) { //树的层序遍历
             Node cur = head;
             while(cur != null) { //这一层的遍历
-                if(cur.left != null) cur.left = cur.right; // must have right
+                if(cur.left != null) cur.left.next = cur.right; // must have right
                 if(cur.right != null && cur.next != null) { // right.next to next.left
                     cur.right.next = cur.next.left;
                 }
