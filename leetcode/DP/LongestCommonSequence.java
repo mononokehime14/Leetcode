@@ -2,7 +2,7 @@ public class LongestCommonSequence {
     public int longestCommonSubsequence(String text1, String text2) {
         /* DP双指针, two strings双指针值得一试, 然后写出状态转移方程
          * DP[i][j] = max(
-         *  DP[i+1][j+1] + 1 if char at i & j are same,
+         *  DP[i-1][j-1] + 1 if char at i & j are same,
          *  DP[i-1][j], //不要我自己
          *  DP[i][j-1] // 不要另一边的
          * )

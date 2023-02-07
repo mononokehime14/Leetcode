@@ -21,8 +21,10 @@ public class BinarySearchTemplate {
         while(left <= right) { // left == right we still want to search, because right is not nums.length
             int mid = left + (right - left) / 2;
             if(nums[mid] <= target) { // change to < if greater/equal
+                // 这里可以理解为无可能是正确答案的区域
                 left = mid + 1; // not possible to be correct answer
             }else {
+                // 这里理解为可能是正确答案的区域 如果mid是正确答案 现在right是mid - 1 一会儿left就会不断的向right靠拢 直到超过right 哎就变成了这个mid 我们还是能拿到正确的解
                 right = mid - 1; // may be correct answer, but we try once more
             }
         }

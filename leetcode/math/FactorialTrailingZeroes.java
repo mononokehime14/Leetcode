@@ -11,7 +11,7 @@ public class FactorialTrailingZeroes {
         // return (int)(n / 5);
         int sum = 0;
         while(n > 0){
-            n /= 5; // 这一步相当于计算之前有多少个数字能提供一个5 然后下一个循环看看还有没有数字提供两个5
+            n /= 5; // 这一步相当于计算之前有多少个数字能提供一个5 然后下一个循环看看还有没有5的倍数 能提供几个5
             sum += n;
         }
         return sum;
