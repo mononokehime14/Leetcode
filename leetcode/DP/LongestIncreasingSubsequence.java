@@ -33,6 +33,7 @@ public class LongestIncreasingSubsequence {
          * 无法做到nlogn, 注意牌堆top是有序的, 因为first fit 可以使用南北朝算法搜索要去哪一堆
          * 
          * 2022.11.20更新 沿用了新整理的二分查找模版 注意这里我们是要找第一个大于或者等于target的element
+         * 这是因为等于要往堆上放 不能算到increasing sequence里面
          */
         int[] top = new int[nums.length];
         top[0] = nums[0];

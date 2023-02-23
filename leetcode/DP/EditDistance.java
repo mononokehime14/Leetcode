@@ -11,6 +11,9 @@ public class EditDistance {
          * 然后关键就是base case, 这里的base case不能去想index 0的字母, 因为和之前是一样的处理方式, 
          * 而要想如果index 0再往前移动, 也就是word traverse完了的情况, 这种情况就只能看另外一边还有多少
          * 要全部insert/delete, 也就是operation数量直接等于另一边剩下的index + 1
+         * 
+         * 2023.2.23重做发现了一个问题 如果char match的情况不直接continue 而是和notMatch做比较的话
+         * 答案会不对 我match的话给个DP[i-1][j-1] 不match先给个m+1也就是不可能的值 原因暂时还没想明白
          */
         int n = word1.length();
         int m = word2.length();

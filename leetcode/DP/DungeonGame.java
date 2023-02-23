@@ -7,6 +7,12 @@ public class DungeonGame {
      * 实际上 这道题的递推要自底向上 DP[i][j]是从ij出发到右下角的minimum initial health
      * 这样的话 依赖下方和右边的dp 取其小的 然后当前的ij正是起点 起点有血包则minimum initial health就可以消掉点 不然就累加
      * 这里要注意用1封底 有多余的血量或者0 initial health应该是1
+     * 
+     * 2023.2.23 Revisit 之前没有讲清楚为什么正推不行 比如如下矩阵
+     * 0 -10 20
+     * 考虑DP[i][j]是minimum health的话 这里应该是-10 因为即便后面有20血包 还是要保证这里-10不死
+     * 0 20 -10
+     * 这里就不用-10了 而是1 所以非常尴尬 推不出结果
      */
     public int calculateMinimumHP(int[][] dungeon) {
         int m = dungeon.length, n = dungeon[0].length;
