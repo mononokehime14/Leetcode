@@ -15,6 +15,7 @@ using namespace std;
 class Solution {
 public:
     vector<vector<int>> reconstructQueue(vector<vector<int>>& people) {
+        // C++ Vector Sort pin point, comparator return true意味着a放在b前面, 故此这里是降序
         sort(people.begin(), people.end(), [](vector<int> &a, vector<int> &b){
             if(a[0] == b[0]) return a[1] < b[1];
             return a[0] > b[0];
