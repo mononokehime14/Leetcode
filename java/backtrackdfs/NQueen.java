@@ -9,6 +9,7 @@ public class NQueen {
      * 何时停止回溯呢? 两种情况, 第一种是整个row都放不进, 这就是自己结束function call return
      * 第二种是发现我们记录的row层数已经大于n, 那说明前面都成功了, 这便是一个成功的案例
      * 细节: java list copy是浅度的, add board to output, 后面值改的时候它也会变, 要用copy方法
+     * C++: 直接赋值就是deep copy. if your vector is a vector of pointers you are getting the copy of pointers, not the values are pointed to
      */
     List<List<String>> output;
     public List<List<String>> solveNQueens(int n) {

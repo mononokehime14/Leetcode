@@ -17,6 +17,10 @@ public:
         cout << "answer: " << answer << endl;
         return answer;
     }
+    /**
+     * 实际上这道题没有那么复杂, 不用combination或者dp
+     * 只需要选出能compatible两种的cpu 先用掉 然后剩下的再搞
+    */
     vector<vector<int>> res;
     vector<int> track = {0, 0, 0};
     void backtrack(const vector<int> & cost, const vector<int> & compatible1, const vector<int> & compatible2, int start, int minCompatible) {
