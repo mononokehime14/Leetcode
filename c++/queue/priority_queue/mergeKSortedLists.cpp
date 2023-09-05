@@ -3,7 +3,7 @@ using namespace std;
 /**
  * 23. Merge k Sorted Lists
  * C++的PQ需要基于一个sequence container实现 也就是constructor里的第二个参数
- * 这里用vector实现的原因是PQ是一个完全二叉树 特殊的是父节点一定比子节点大
+ * 这里用vector实现的原因是PQ是一个平衡二叉树(并不能算完全 最后一层可能不完全的) 特殊的是父节点一定比子节点大
  * 这样对于在i的节点子节点的位置一定在2i+1和2i+2, 父节点一定在(i-1)/2
  * PQ有两种操作 上浮和下沉 上浮就是和父节点比较然后swap 下沉同理(如果下沉选择子节点中较大的swap)
  * insert就把值先加到最后(size+1) 然后上浮 同理pop就把top换到最后 然后最新的top执行下沉
