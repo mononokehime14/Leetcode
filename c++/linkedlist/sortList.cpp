@@ -2,7 +2,7 @@
 /**
  * 基本思路是用快慢指针找到中点 然后merge sort
  * merge的代码和merge sort list的是一样的 cur = cur->next这一步要等到a = a->next 不然会被覆盖掉
- * 另外快慢指针可以用这套模版 两者都是从head开始 经过推算slow在中点 偶数list会在左边中点 
+ * 另外快慢指针找中点可以用这套模版 两者都是从head开始 经过推算slow在中点 偶数list会在左边中点 
 */
 class Solution {
 public:

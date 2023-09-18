@@ -57,24 +57,14 @@ subsequence理论上复杂度要比subarray高, 因为可能性更多, 可以考
 
 3. 思考迭代方向, 一定是基于状态转移. 比如背包问题在空间压缩后是正向还是反向遍历, 实际上就取决于用[i-1][j-k]还是[i][j-k], 01背包自己只能用一次, 要基于一个物品的状态, 故此只能反向避免覆盖掉, 完全背包因为不限次数我们用自己之前更新的, 就必须是正向. 2维可以画图辅助理解.
 
-在准备国内面试时再次整理了DP问题，follow了这篇知乎帖子：
-https://zhuanlan.zhihu.com/p/91582909
-DP问题的解决确实按照经验，可以分为三个重要的部分，第一是dp数组怎么定义，DP[i]或者DP[i][j]代表什么，第二是关系式，如何去计算出dp值，也就是所谓状态转移方程，第三是base case是什么。
-
-如何定义DP数组
-
-    可以简单的定义DP[i]代表题目要求的那个极值，比如最长递增子序列，DP[i]代表以i结尾的最长递增子序列的长度。简单的1D比如Jump Game，2D比如Unique Paths。
-
-    对于两个String，可以考虑DP[i][j]代表长i的String1和长j的string2的答案，比如编辑距离，最长公共子序列。
-
-如何确定base case
-
-    在如Unique Path，minimum path sums这类题目中，二维矩阵的base case很可能是要对第一行第一列做处理。
-
 ## 树 ##
 ### 二叉树 ###
 三种遍历preorder, inorder, postorder产生思路的变化很多. 还有的思路类似dfs, 必须更新某个值最后作为答案.
-对于树做删减这类的动态裁剪题目, 通常可以traverse helper return node, parent直接赋值.
+
+有一部分的搜索二叉树题目, 比如搜索组合, 要考虑加入当前的node和不加入, 两种情况分类讨论
+
+对于树做删减这类的动态裁剪题目(trim, delete), 通常可以traverse helper function return node(return type 直接是TreeNode), parent直接赋值. 
+
 LCA(Lowerest Common Ancestor)则是可以这么理解: 需要一个p在左边q在右边的node, 在BST中这就直接意味着q < n < q, 然后我们要从上往下找到第一个满足这个条件的node就可以了, 其他的都不是lowerest.
 ### 二叉搜索树 ###
 为了search logN 存在, 当前node左边的所有node都比它小 右边的node都比它大, 故此中序遍历在二叉搜索树中使用一下子就可以变成正常的升序. BST的题目也可以从“如果我展平BST变成一个升序数列”开始思考
