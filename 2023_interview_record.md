@@ -42,8 +42,8 @@ CS的问题是如何加速一个代码, 太他妈的general了, 我说了memory,
 
 ML的问题我答的稀烂, 他问的有点细节, bias和variance的细节我都忘了. 什么是high bias/high variance模型, 我费了好大的劲才在提示下回答出来. 然后问了一些LLM的问题, 我什么都不懂.
 
-然后最离谱的就是之后的提问, 如何保证两个function的output完全相同, 什么test case的构建. 答到一半我有点受不了了, 只想结束.
+然后最离谱的就是之后的提问, 如何保证两个function的output完全相同, 什么test case的构建, 直接开始讨论业务. 答到一半我有点受不了了, 只想结束.
 
 Coding更是烦, 写一个data type的comparator, 我觉得好无聊. 基本上一边交流一边写, 已经把不耐烦打在脸上了. 分类讨论type, 然后recessively检查data structure里的每个element. 他说一个要求我挤一个实现. 我觉得这完全就是业务代码, 本来就是要根据要求改的嘛.
 
-总结就是我一点也不感兴趣了.
+总结就是我一点也不感兴趣了, 2-3人的start up如果老板很抽象太烦了.

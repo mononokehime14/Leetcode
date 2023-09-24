@@ -1,15 +1,15 @@
-# 独孤九剑 #
-归妹趋无妄 无妄趋同人 同人趋大有
+# <center>独孤九剑 破尽天下招式</center>
+<center>归妹趋无妄 无妄趋同人 同人趋大有</center>
 
-甲转丙 丙转庚 庚转癸 
+<center>甲转丙 丙转庚 庚转癸</center> 
 
-子丑之交 辰巳之交 午未之交
+<center>子丑之交 辰巳之交 午未之交</center>
 
-风雷是一变 山泽是一变 水火是一变 
+<center>风雷是一变 山泽是一变 水火是一变</center> 
 
-乾坤相激 震兑相激 离巽相激
+<center>乾坤相激 震兑相激 离巽相激</center>
 
-三增而成五 五增而成九
+<center>三增而成五 五增而成九</center>
 
 ## Greedy ##
 1. Overlapping circles, 这类题目通常要先转一个弯, 题目求的是minimum remove, 那么能不能做到每一次remove最大化价值?
@@ -20,7 +20,7 @@
 1. 左右, 快慢, 并行. 左右、并行指针常见数组问题, 快慢指针常见链表问题(也可以用来数组remove duplicates). 
 2. 左右指针比如two sum sorted中来, 往往两个candidate拼凑答案, 就可以左右指针试. panlindrome的检查使用左右指针扫一遍, 搞清楚parentheses的检查则是用stack. 背向而行可以称为扩散指针, 也是回文字符串的经典思路.
 3. 快慢指针经典用于判定链表是否有环 
-4. 并行指针往往是检查两个数组是不是有某种共同的pattern, 或者merge sorted array, 要点在于两者order的保持.
+4. 并行指针往往是检查两个数组是不是有某种共同的pattern (比如检查子序列subsequence, 指针可以跳着嘛), 或者merge sorted array, 要点在于两者order的保持.
 
 
 ## Math ## 
