@@ -18,6 +18,11 @@
 
 总的来说, 准备的不是很充分. 没犯大错, 也没啥亮点. 大事不妙.
 
+结局: 被拒, position filled. 可能不是面试的问题, 推荐去了另外一个组.
+
+# Shoreline, DevOps
+第一次是一个简单的聊天, 我表达了我对在start up工作的热情. 哦我的上帝, 完全是拷贝了上次和Tacit AI面试的时候那个founder说的话. 确定了这个组是做云计算的DevOps, 兴趣乏乏, 但是还是表达了我的表面热情, 约上了下一次面试. 就当练练手了.
+
 # Health At Scale, MLE
 先是大量ML基础的提问. 由于这个公司是做的医疗, 估计regression用的比较多, 而并不是医疗图像, 没有任何深度学习的问题. 
 
@@ -35,6 +40,8 @@
 
 总结, coding没啥亮点, ML问题可能有些扣分, 虽然考官一直“哦, 这很好, 完全正确”.
 
+结局: 被拒, 后来复习的时候确实发现自己的回答太不正确了. 要好好复习ML.
+
 # Tacit plus, MLE
 再也不面start up了, 再也不面了. 超时了一个半小时, 太折磨了.
 
@@ -47,3 +54,27 @@ ML的问题我答的稀烂, 他问的有点细节, bias和variance的细节我�
 Coding更是烦, 写一个data type的comparator, 我觉得好无聊. 基本上一边交流一边写, 已经把不耐烦打在脸上了. 分类讨论type, 然后recessively检查data structure里的每个element. 他说一个要求我挤一个实现. 我觉得这完全就是业务代码, 本来就是要根据要求改的嘛.
 
 总结就是我一点也不感兴趣了, 2-3人的start up如果老板很抽象太烦了.
+
+后续: 真香啊, 又面了一轮technical. 题目是两道业务代码, 第一道已经忘记了, 好像是分割出一个字符串里的内容; 第二道是计算TF-IDF, follow up问了如果documents size很大怎么办.
+
+算是没啥问题, 面试官也就是founder说pass all technical了. 下一周的VentureBridge SV event我还去见到了他. 
+
+后续: 无消息.
+
+# Nvidia, Deep Learning Algorithm
+收到面试邀请的时候真的好激动, Nv面试, 从来没有收到过, 又是在当前这个环境下. 如果能去Nv, 真的是最好的结局了. 花了很多时间复习ML, 也花了一点时间刷题.
+
+面试官直接是一个lead, 40分钟, 主要可能还是看一下水平大概如何. 该部门是做AI Playground和Community Models(也就是开源社区的模型部署什么的). 
+
+大量的时间在问简历的细节. 当前的TTS project用的VITS模型, SPD的time series模型和数据, 甚至是NTU的character creator 4 dataset. 高通的反而没问.
+
+然后自然是PP, 他们估计见多了CUDA, 每个申请的人多多少少都要说自己的CUDA项目. 主要问了Transformer, 我都如实回答了. Megatron居然是他们部门维护的, 这波啊, 这波是关公面前耍大刀了.
+
+然后是Coding, 用PyTorch写一个training loop. 写的其他的很顺利, 漏掉了一个optimizer.zero_grad(). 他问了这一行的左右, 我确实不知道, 猜测了一下grad清零是因为前向传播并不需要grad, 清零可以加速. 但是事实上是这一步清零, 后面的step才能正确计算, 不然就累积了. 多么简单的答案, 因为我从来没有关注过这个函数, 或者说关注过但是忘了. 总的而言, 实力不够. 决定一定要自学DLS了. 其实暑假就应该准备好, 但是像李晨昊学长这样的努力, 我终究是没能做到.
+
+后续: 没消息. 太可惜了, 得到机会但是实力不够, 继续努力学习ML/DL吧.
+
+# Black Sesame, AI Compiler
+AI compiler的概念就类似我们之前高通组里的DirectNN? 我的理解是类似TVM. 但是面试官似乎是说不全是, 共同的概念是打通模型和accelerator之间的强梁, 是属于AI部署和infrastructure.
+
+题目是DAG的topological sort. 语言自然是C++, 一开始我还写错了, 用了preorder, 带个visited. 后来test的时候, 面试官提示有问题, 我想了想反应过来了, 应该用后序, 然后将结果再反过来. 通过是通过了, 但是暴露了需要好好复习经典题目.
