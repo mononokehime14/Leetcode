@@ -23,6 +23,50 @@
 # Shoreline, DevOps
 第一次是一个简单的聊天, 我表达了我对在start up工作的热情. 哦我的上帝, 完全是拷贝了上次和Tacit AI面试的时候那个founder说的话. 确定了这个组是做云计算的DevOps, 兴趣乏乏, 但是还是表达了我的表面热情, 约上了下一次面试. 就当练练手了.
 
+第一轮技术面
+```
+A team is playing a game. At the beginning of the game, the team has 0 points.
+The team can gain points in non-negative integer increments of a_1, a_2, ..., or a_k points.
+Every time the team gains points, the mascot has to do a number of pushups
+equal to the new score.
+You are given the possible point increments a_1, a_2, a_3, ..., a_k,
+and the total number of pushups p the mascot ended up doing.
+Find a possible final score s for the team, or correctly assert that
+such a number of pushups is impossible the given game.
+---
+Example:
+a = [3, 4, 5]
+p = 23
+A possible value for s is 12.
+```
+```C++
+void backtrack(vector<int>& a, int p, int& answer, int current_score, int current_p, unordered_set<string> memo) {
+  if(current_p > p) return;
+  if(answer != -1) return;
+  if(current_p == p) {
+    answer = current_score;
+    return;
+  }
+  string key = to_string(current_score) + " " + to_string(current_p);
+  if(memo.find(key) != memo.end()) return;
+  for(int i : a) {
+    backtrack(a, p, answer, current_score + i, current_p + current_score + i, memo);
+    if(answer != -1) return;
+  }
+  memo.insert(key);
+}
+
+int solution(vector<int>& a, int p) {
+  int answer = -1;
+  unordered_set<string> memo;
+  backtrack(a, p, answer, 0, 0, memo);
+  return answer;
+}
+
+p = 28431, a = [13, 15] -> s in [855, 857, 859, 861, 863, 865, 867, 869, 871, 873, 874, 875, 876, 877, 878, 879, 880, 881, 882, 883, 884, 885, 886, 887, 888, 889, 890, 892, 894, 896, 898, 900, 902, 904, 906, 908, 910, 912, 914]
+```
+这是极度类似CombinationIV的, 带memo的combination. 但是有一点奇怪, memo加进去之后更慢了 TODO 研究一下
+
 # Health At Scale, MLE
 先是大量ML基础的提问. 由于这个公司是做的医疗, 估计regression用的比较多, 而并不是医疗图像, 没有任何深度学习的问题. 
 
@@ -72,9 +116,17 @@ Coding更是烦, 写一个data type的comparator, 我觉得好无聊. 基本上�
 
 然后是Coding, 用PyTorch写一个training loop. 写的其他的很顺利, 漏掉了一个optimizer.zero_grad(). 他问了这一行的左右, 我确实不知道, 猜测了一下grad清零是因为前向传播并不需要grad, 清零可以加速. 但是事实上是这一步清零, 后面的step才能正确计算, 不然就累积了. 多么简单的答案, 因为我从来没有关注过这个函数, 或者说关注过但是忘了. 总的而言, 实力不够. 决定一定要自学DLS了. 其实暑假就应该准备好, 但是像李晨昊学长这样的努力, 我终究是没能做到.
 
-后续: 没消息. 太可惜了, 得到机会但是实力不够, 继续努力学习ML/DL吧.
+后续: 杯具. 太可惜了, 得到机会但是实力不够, 继续努力学习ML/DL吧.
 
 # Black Sesame, AI Compiler
 AI compiler的概念就类似我们之前高通组里的DirectNN? 我的理解是类似TVM. 但是面试官似乎是说不全是, 共同的概念是打通模型和accelerator之间的强梁, 是属于AI部署和infrastructure.
 
-题目是DAG的topological sort. 语言自然是C++, 一开始我还写错了, 用了preorder, 带个visited. 后来test的时候, 面试官提示有问题, 我想了想反应过来了, 应该用后序, 然后将结果再反过来. 通过是通过了, 但是暴露了需要好好复习经典题目.
+题目是DAG的topological sort. 语言自然是C++, 一开始我还写错了, 用了preorder, 带个visited. 后来test的时候, 面试官提示有问题, 我想了想反应过来了, 应该用后序, 然后将结果再反过来. 时间复杂度答对了O(N+E).
+
+follow up问了是不是真的需要visited, 我说在当前的算法实现中是必须的, 因为即便图无环, 一个node有多个incoming edge就会重复访问. 如果实在不想要, 只能检查当前的track里是否存在当前node, 但track要保持order只能用vector, 那查找就是O(N).
+
+后来问了浩哲, 得知course schedule实际上有第二种解法, 这可能是面试官觉得有更好解法的关键. 通过是通过了, 但是暴露了需要好好复习经典题目.
+
+也有做的好的地方. 我觉得上次那个workshop去的很值, 看别的同学和google的学姐现场表演, 发现不管怎么样, 打代码要快, 要起码显得自己脑子很快. 然后就是如果做不出来, 不妨大胆猜一个思路, 然后从面试官的reaction和hint中再做尝试. 积极在codepad中记录思路, 因为等下面试官会拷贝记录的.说完思路要和面试官确认, 然后开始写代码.
+
+从心情上来说, 即便我写错了一次, 突然想出来的那一刻是很开心的. 我想面试的时候, 这一刻的心情很独特, 那不是说觉得面试把握很大而开心, 而是想出思路单纯的有些小得意, 纵然这是一道基础的题目. 我偷偷的想, 有的时候, 保持和传递这种积极的情绪, 实际上是有帮助的吧. 

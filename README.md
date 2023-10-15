@@ -1,15 +1,15 @@
-# <center>独孤九剑 破尽天下招式</center>
-<center>归妹趋无妄 无妄趋同人 同人趋大有</center>
+# <center>独孤求败尽破天下剑招于此</center>
+<p align="center">归妹趋无妄 无妄趋同人 同人趋大有</p> 
 
-<center>甲转丙 丙转庚 庚转癸</center> 
+<p align="center">甲转丙 丙转庚 庚转癸</p> 
 
-<center>子丑之交 辰巳之交 午未之交</center>
+<p align="center">子丑之交 辰巳之交 午未之交</p> 
 
-<center>风雷是一变 山泽是一变 水火是一变</center> 
+<p align="center">风雷是一变 山泽是一变 水火是一变</p>  
 
-<center>乾坤相激 震兑相激 离巽相激</center>
+<p align="center">乾坤相激 震兑相激 离巽相激</p> 
 
-<center>三增而成五 五增而成九</center>
+<p align="center">三增而成五 五增而成九</p> 
 
 ## Greedy ##
 1. Overlapping circles, 这类题目通常要先转一个弯, 题目求的是minimum remove, 那么能不能做到每一次remove最大化价值?
@@ -28,7 +28,8 @@
 2. 快速幂用某种分而治之的思路 区分奇偶 偶数直接平方 奇数平方再乘以底数
 3. 质数 丑数 思路是快速筛选法
 4. 通过n&(n-1)可以消除掉n的最后一位1
-5. 对于任何数字a a ^ 0 = a, a ^ a = 0
+5. 对于任何数字a a ^ 0 = a, a ^ a = 0; XOR计算顺序无关
+6. 故此对于任何数组, 想要first ^ last = 剩余的XOR和, 则整个数组xor为0
 
 
 ## 二分搜索 ##
@@ -37,7 +38,9 @@
 ## Subarray & Subsequence ##
 Subarray由于有连贯性的要求, 每次第一反应就是能不能滑一下(滑动窗口). 不过, 滑动窗口的应用场景是比较特殊的, 通常是window有特殊的维持条件, 比如window定长, 或者要保持sum等于什么. 要从什么时候扩张右指针, 什么时候收缩左指针直到无法满足条件入手思考.
 
-subarray的粗暴思路往往是扩散指针(比如palindrome subarray)或者前缀数组(比如subarrays equal sum). 当要求得极值的时候, 就要考虑DP. subarray的DP可以从dp[i][j]意味着从i到j的某种状态考虑.
+subarray的粗暴思路往往是扩散指针(比如palindrome subarray)或者前缀数组(比如subarrays equal sum). 如果我们要尝试左右的window size的可能, 简单的前缀数组会得到NK的复杂度, 此时要考虑用hashmap记录prefix出现的数量, 如果要window和为x, 检查哈希表里是否有多少(当前prefix - x).
+
+当要求得极值的时候, 就要考虑DP. subarray的DP可以从dp[i][j]意味着从i到j的某种状态考虑.
 也可以考虑一维dp, dp[i]以i为结尾或者中点的subarray, 考虑前面或者后面的index是不是要满足什么条件.
 
 subsequence理论上复杂度要比subarray高, 因为可能性更多, 可以考虑DP(思路类似subarray), 比如最长子序列.
@@ -57,6 +60,9 @@ subsequence理论上复杂度要比subarray高, 因为可能性更多, 可以考
 
 3. 思考迭代方向, 一定是基于状态转移. 比如背包问题在空间压缩后是正向还是反向遍历, 实际上就取决于用[i-1][j-k]还是[i][j-k], 01背包自己只能用一次, 要基于一个物品的状态, 故此只能反向避免覆盖掉, 完全背包因为不限次数我们用自己之前更新的, 就必须是正向. 2维可以画图辅助理解.
 
+## Stack ##
+从左到右保持顺序运算, 比如calculate operator, 比如(){}[], 比如路径, 都可以利用stack的特性先进先出, 得到正确的前一个的信息. 
+
 ## 树 ##
 ### 二叉树 ###
 三种遍历preorder, inorder, postorder产生思路的变化很多. 还有的思路类似dfs, 必须更新某个值最后作为答案.
@@ -68,4 +74,6 @@ subsequence理论上复杂度要比subarray高, 因为可能性更多, 可以考
 LCA(Lowerest Common Ancestor)则是可以这么理解: 需要一个p在左边q在右边的node, 在BST中这就直接意味着q < n < q, 然后我们要从上往下找到第一个满足这个条件的node就可以了, 其他的都不是lowerest.
 ### 二叉搜索树 ###
 为了search logN 存在, 当前node左边的所有node都比它小 右边的node都比它大, 故此中序遍历在二叉搜索树中使用一下子就可以变成正常的升序. BST的题目也可以从“如果我展平BST变成一个升序数列”开始思考
+
+### 线段树 ###
 
