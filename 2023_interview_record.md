@@ -130,3 +130,29 @@ follow up问了是不是真的需要visited, 我说在当前的算法实现中�
 也有做的好的地方. 我觉得上次那个workshop去的很值, 看别的同学和google的学姐现场表演, 发现不管怎么样, 打代码要快, 要起码显得自己脑子很快. 然后就是如果做不出来, 不妨大胆猜一个思路, 然后从面试官的reaction和hint中再做尝试. 积极在codepad中记录思路, 因为等下面试官会拷贝记录的.说完思路要和面试官确认, 然后开始写代码.
 
 从心情上来说, 即便我写错了一次, 突然想出来的那一刻是很开心的. 我想面试的时候, 这一刻的心情很独特, 那不是说觉得面试把握很大而开心, 而是想出思路单纯的有些小得意, 纵然这是一道基础的题目. 我偷偷的想, 有的时候, 保持和传递这种积极的情绪, 实际上是有帮助的吧. 
+
+## Onsite 面试
+三轮tech + 一轮和lead的, 其中一轮临时取消了. 我第一次参加如此多的back-to-back面试.
+第一轮tech面试的题目就是对于一个linkedlist, 对于一个node, 如果该node的右边有大于当前node的值, 就remove.
+
+比如5 -> 2 -> 13 -> 3 -> 8, 最后就应该是13 -> 8. 这道题我就想用postfix了. 那么如何得到右边最大的node呢? 我的想法是reverse traverse一遍. 为了避免reverse新declare linked list的麻烦, 使用了一个stack把value推上去, 然后再一个个拿下来.
+
+最后再正向loop一遍, 比较自己的val和postfix记录的. 有一个小问题是由于leetcode从来不需要写struct, 怎么写constructor我给忘记了. 面试官告诉的怎么写, 有一点尴尬. follow-up的问题是能否优化, 我认为postfix的array可以不用, stack一边pop下来一边放到顶上, 那实际上stack就不能满足条件, deque可以. 另外一个follow-up是对于算法本身. 面试官的意思表达的不甚清楚, 但是我想出来可以用快慢指针. 从后面开始, 实际上不用postfix, 保持一个max就可以了, 如果当前node小于, 那么等一下是要remove的, prev不动; 当前的node大于等于, prev->next到current, 相当于之前所有的小于的都跳过了. 这是一个多么完美的想法. 最后要把result再reverse回来.
+
+最终面试官的想法, 是要用recursion. 我认为recursion是对上述最后解法的一种改进, 会更简洁, 但是思路实际是一样. 能够arrive到这一步, 我自己心里很是满足了. 一开始想的办法并不optimal, 毕竟忘记了原题, 从头想的.
+
+后面简历重点问了quantization, 这极有可能是他们组现在在做的东西, 因为后面一个面试官也问了. 很不幸, 这部分在高通没有细研究, 我只是用了tflite. 我之前专门复习过quantization的概念, 但是这两轮面试都问的更加深, 不是粗通能够应付的. 唉, 这已经是实力的极限了, 简历上是写了quantization, 但是这也是没办法的, 不写估计也拿不到面试...
+
+第二轮两道题目. 第一道startWord -> a1 -> a2 -> endWord, 每一个中间词要在word bank里. 运气真的是很好, 昨天刚刚做过原题433. 确认完题目之后我很快说了reasoning, 可以理解为graph traverse, 最短路径那就是bfs. 面试官无情的说你可以直接开始写了, 并且问我是不是做过这道题目. 我就说我做过哈哈哈哈哈, 也挺好的, 这下我心里也坦诚了. 就是有一个问题, 为什么他们总能发现我做过原题?
+
+写的时候发现之前的solution并不最优. 对于一个词的每一个字母去变换并检查是不是在bank里, 是不如迭代bank并判断每一个是不是能通过current变换的. 这是经过面试官提醒发现的. follow-up里根据时间复杂度O(NNk) (其中k是word length, 因为当时写了一个loop检查current和bank里的word是不是只有一个character不一样)做优化, 面试官提醒是check的那一步. 我就想到如果我们保证每一个word都在wordbank里, 可以提前对于word bank里的词俩俩比较, 这样后面就不用重复检查. 面试官点头表示满意, 我心中也有些小小的开心.
+
+第二道题是给定ascending array构建二叉搜索树, 也是原题, 找中点递归. 在白板上推演了例子.
+
+简历的问题还是回答的不好. 同样是quantization, 而且也问了很多qflow的细节. 看起来比较看不起qflow, 确实只是一个pytorch的wrapper一样的orz, 当时project设计就是这样...NTU的科研问了很多, AI synthetic检查这个面试官也做过, 看起来对转成CV问题用resnet比较不信任. 可惜当时完全对ML一知半解, 我不知道当时的ResNet的最后一层是不是classifier. 问了threshold是多少, 我有点疑惑, 我记得我们是搞成binary classifier, 那就是会sigmoid或者softmax, 之后不需要threshold? 还有如何把audio signal转成histogram/FFT frequency graph, 我没有特别的印象, 但是肯定使用了library没有啥问题...
+
+第三轮临时取消了, 后面team lead就是第一轮面试我的Jack, 只是简单聊了几句. 他真的很厉害, 之前也是高通的GPU team的, 还是intel和google gpu team. 而且人很好, 虽然说的话不多, 但是使人感觉到很沉静, 他的关注一直很集中, 这是我非常想要达到的状态.
+
+我们聊了一点家常, 父母住在哪里呀什么的, 最后他送我到门口. 那一瞬间我感觉他真是一个很好的model, 跟着他工作会学到很多东西. 这是一个非常好的team和机会. 当然现在掌握并不在我手中了.
+
+总结是leetcode都不错, 可惜简历问的深了都答不上来了. 

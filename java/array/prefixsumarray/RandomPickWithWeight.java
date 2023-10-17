@@ -1,3 +1,4 @@
+package array.prefixsumarray;
 public class RandomPickWithWeight {
     /* 528
      * 一开始我的想法是 weight相当于有多少区间吗 我们可以相应扩充 我的考虑是用所有weight的sum 1-sum 大区间 然后随机
