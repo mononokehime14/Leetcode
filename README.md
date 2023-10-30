@@ -35,14 +35,15 @@
 ## 二分搜索 ##
 1. 有一类题目是通过二分搜索尝试答案是否正确做出来的 比如快速寻找sqrt 注意要知道min max
 
-## Subarray & Subsequence ##
+## Subarray ##
 Subarray由于有连贯性的要求, 每次第一反应就是能不能滑一下(滑动窗口). 不过, 滑动窗口的应用场景是比较特殊的, 通常是window有特殊的维持条件, 比如window定长, 或者要保持sum等于什么. 要从什么时候扩张右指针, 什么时候收缩左指针直到无法满足条件入手思考.
 
-subarray的粗暴思路往往是扩散指针(比如palindrome subarray)或者前缀数组(比如subarrays equal sum). 如果我们要尝试左右的window size的可能, 简单的前缀数组会得到NK的复杂度, 此时要考虑用hashmap记录prefix出现的数量, 如果要window和为x, 检查哈希表里是否有多少(当前prefix - x).
+subarray的另一种思路往往是扩散指针(比如palindrome subarray)或者前缀数组(比如subarrays equal sum). 如果我们要尝试左右的window size的可能, 简单的前缀数组会得到NK的复杂度, 此时要考虑用hashmap记录prefix出现的数量, 如果要window和为x, 检查哈希表里是否有多少(当前prefix - x). 这使用用差值找到正确的subarray的思路, 类似two sum. 如果哈希表记录的是出现位置, 当我们只往hashmap里记录一次, 就自然而然的保持着最左边的出现位置, 也就是能找最长的subarray.
 
-当要求得极值的时候, 就要考虑DP. subarray的DP可以从dp[i][j]意味着从i到j的某种状态考虑.
+另外一种思路是考虑DP. subarray的DP可以从dp[i][j]意味着从i到j的某种状态考虑.
 也可以考虑一维dp, dp[i]以i为结尾或者中点的subarray, 考虑前面或者后面的index是不是要满足什么条件.
 
+## Subsequence ##
 subsequence理论上复杂度要比subarray高, 因为可能性更多, 可以考虑DP(思路类似subarray), 比如最长子序列.
 
 ## DP ##
@@ -65,15 +66,23 @@ subsequence理论上复杂度要比subarray高, 因为可能性更多, 可以考
 
 ## 树 ##
 ### 二叉树 ###
-三种遍历preorder, inorder, postorder产生思路的变化很多. 还有的思路类似dfs, 必须更新某个值最后作为答案.
+三种遍历preorder, inorder, postorder产生思路的变化很多. 
 
-有一部分的搜索二叉树题目, 比如搜索组合, 要考虑加入当前的node和不加入, 两种情况分类讨论
+还有的思路类似dfs, 答案可能留在树中, 必须更新某个值最后作为答案. 例如需要考虑从左child到root到右child往下的这种path的.
+
+有一部分的搜索二叉树题目, 比如搜索组合, 要考虑加入当前的node和不加入, 两种情况分类讨论, 例如计算和等于targetSum的paths
 
 对于树做删减这类的动态裁剪题目(trim, delete), 通常可以traverse helper function return node(return type 直接是TreeNode), parent直接赋值. 
 
 LCA(Lowerest Common Ancestor)则是可以这么理解: 需要一个p在左边q在右边的node, 在BST中这就直接意味着q < n < q, 然后我们要从上往下找到第一个满足这个条件的node就可以了, 其他的都不是lowerest.
 ### 二叉搜索树 ###
-为了search logN 存在, 当前node左边的所有node都比它小 右边的node都比它大, 故此中序遍历在二叉搜索树中使用一下子就可以变成正常的升序. BST的题目也可以从“如果我展平BST变成一个升序数列”开始思考
+为了search logN 存在, 当前node左边的所有node都比它小 右边的node都比它大, 故此中序遍历在二叉搜索树中使用一下子就可以变成正常的升序. 
+
+BST的题目也可以从“如果我展平BST变成一个升序数列”开始思考. 比如如何找出一个不合法的node, 正是一个在展开的升序中比前一个小的数字, 那么我们通过维持一个prev来inorder traverse就可以解决这类问题. 
 
 ### 线段树 ###
+
+## 重剑无锋, 大巧不工 ##
+C++常用方法和trick整理 -> BlueShell/c++/康定情歌.md
+
 

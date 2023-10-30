@@ -2,7 +2,7 @@
  * 115. Distinct Subsequences
  * 这道题给了两个字符串 subsequence的dp就一定要考虑2D i, j双指针
  * 然后就要考虑怎么利用过去的状态 这里的核心就是如果char不match 应该继承S的前一个位置
- * 然后就是longmax完全因为testcase intermediate有overflow, 甚至long long都不能容纳 log一下就行了
+ * 然后就是longmax完全因为testcase intermediate有overflow, 甚至long long都不能容纳 %一下就行了
  * 因为最后的答案4B int 说明overflow的部分实际不影响
 */
 class Solution {

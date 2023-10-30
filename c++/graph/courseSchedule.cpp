@@ -2,7 +2,8 @@
  * 207. Course Schedule
  * 仿照Java版本的思路重写的C++ 主要是思路是检测环 这一点实际上并不好想
  * 然后就是track和visited的区别 track是回溯的 专门检测图中的环
- * visited则是避免进入死循环用的
+ * visited则是避免进入死循环用的, 或者说必然重复检查
+ * 这是因为一个node可能有多个incoming edge, 导致我们到访这个node很多次, 但是这并不代表这就是一个环
 */
 class Solution {
 public:
