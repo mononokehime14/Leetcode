@@ -105,7 +105,7 @@ Coding更是烦, 写一个data type的comparator, 我觉得好无聊. 基本上�
 
 算是没啥问题, 面试官也就是founder说pass all technical了. 下一周的VentureBridge SV event我还去见到了他. 
 
-后续: 无消息.
+后续: 和另外一个full-time又聊了聊, 基本确定想要去那里工作是没问题的了.
 
 # Nvidia, Deep Learning Algorithm
 收到面试邀请的时候真的好激动, Nv面试, 从来没有收到过, 又是在当前这个环境下. 如果能去Nv, 真的是最好的结局了. 花了很多时间复习ML, 也花了一点时间刷题.
@@ -189,3 +189,10 @@ I am happy to say that TikTok has been the single worst company that I have ever
 很可惜. 面试的时候就像是一个塑料袋套在脑子上, 居然理解错了意思. 不然应该能有时间写带备忘录的版本. TikTok这个组内推的学长之前说面好的都有几个, 故此我一直觉得是陪跑. 现在看起来, 准备的不太充分, 至少应该好好休息的. 准备的两天刷了20+新题目, 用处不大, 应该多投入时间复习经典题目.
 
 TT啊TT, 接连两年, 两次折戟二面. 借口可以很多, 实力确实技不如人. 下一次见到你, 我是否状态会更好呢?
+
+# 接高通offer之后
+11月中旬, 很幸运的接到高通的return offer. 拿着return去问black sesame, 也愿意给offer. 还是选择了高通.
+
+接offer的那一周以及之后, 还是有几个面试, 不过已经记得不认真了. 一个Y Combinator上找的AI startup, 一个handshake上面的startup, 都感觉很有希望, 不过我直接说不继续面了. 
+
+后面AMD reach out, 超级兴奋, 特地准备. HR call聊的很好, 临到末尾, 问了国籍, 然后就是经典export license, 然后全剧终. 他们需要尽快开始的candidate, EL会等太久.
